@@ -1,7 +1,7 @@
 {
   "name": "class-props",
   "version": "1.0.0",
-  "description": "Use boolean React props to apply classNames",
+  "description": "React component for quickly applying multiple classNames – great for libraries like Tachyons and Basscss",
   "main": "dist.js",
   "scripts": {
     "prepublish": "babel index.js -o dist.js",
