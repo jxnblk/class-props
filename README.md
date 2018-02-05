@@ -23,8 +23,10 @@ const App = props => (
 )
 ```
 
+The `is` prop changes the underlying DOM element from a `div`. By creating a functional, stateless component with class props, you can re-use that component elsewhere without needing to define the class props again.
+
 ```jsx
-// Creating a style component
+// Creating a component with class props
 const Heading = props =>
   <Base
     is='h2'
@@ -33,6 +35,34 @@ const Heading = props =>
     mt3
     mb2
   />
+```
+
+You can also pass boolean values to class props, so that they can be toggled on and off:
+
+```jsx
+const Button = props => <Base is="button" {...props} btn btn-primary />
+
+class Example extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      red: true,
+    }
+  }
+
+  render() {
+    const state = this.state
+
+    return (
+      <div>
+        <Button onClick={e => this.setState({ red: !this.state.red })}>
+          Toggle Red
+        </Button>
+        <Base red={this.state.red}>Example</Base>
+      </div>
+    )
+  }
+}
 ```
 
 [MIT License](LICENSE.md)
