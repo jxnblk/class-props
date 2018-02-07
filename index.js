@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component, createElement } from 'react'
+import PropTypes from 'prop-types'
 
 const omit = (obj, keys) => {
   const next = {}
@@ -13,9 +14,19 @@ const classnames = props => Object.keys(props)
   .filter(key => props[key] === true)
   .join(' ')
 
-class Base extends React.Component {
+class Base extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    is: PropTypes.string
+  }
+
+  static defaultProps = {
+    className: '',
+    is: 'div'
+  }
+
   render () {
-    const { is = 'div' } = this.props
+    const { is } = this.props
     const className = [
       this.props.className,
       classnames(this.props)
@@ -26,7 +37,7 @@ class Base extends React.Component {
     ]
     const props = omit(this.props, blacklist)
 
-    return React.createElement(is, {
+    return createElement(is, {
       ...props,
       className
     })
