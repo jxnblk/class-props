@@ -17,12 +17,12 @@ const classnames = props => Object.keys(props)
 class Base extends Component {
   static propTypes = {
     className: PropTypes.string,
-    is: PropTypes.string,
+    is: PropTypes.string
   }
 
   static defaultProps = {
     className: '',
-    is: 'div',
+    is: 'div'
   }
 
   render () {
