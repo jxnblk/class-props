@@ -1,5 +1,5 @@
 import React, { Component, createElement } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const omit = (obj, keys) => {
   const next = {}
