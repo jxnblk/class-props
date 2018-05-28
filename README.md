@@ -55,15 +55,17 @@ class Example extends React.Component {
 
     return (
       <div>
-        <Button onClick={e => this.setState({ red: !this.state.red })}>
+        <Button onClick={e => this.setState({ red: !state.red })}>
           Toggle Red
         </Button>
-        <Base red={this.state.red}>Example</Base>
+        <Base red={state.red ? true : undefined}>Example</Base>
       </div>
     )
   }
 }
 ```
+
+Using `state.red ? true : undefined` rather than `state.red` alone avoids  having a `red="true"` passed down the HTML (which probably isn’t your intent and will also cause a React to log a warning).
 
 [MIT License](LICENSE.md)
 
